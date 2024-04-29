@@ -16,7 +16,7 @@ function PoliticalCompass(props) {
   <line x1="-100" y1="0" x2="100" y2="0" stroke="black" />
   {/* Vertical line */}
   <line x1="0" y1="-100" x2="0" y2="100" stroke="black" />
-  <circle cx={props.x} cy={props.y} r="5" fill="black" />
+  <circle cx={props.x} cy={props.y*-1} r="5" fill="black" />
   </svg>
 
   );
