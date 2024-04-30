@@ -87,9 +87,6 @@ function Questions(props) {
         <div><div>Твій результат <Ideologies x={xValue} y={yValue}/></div>
         <div><PoliticalCompass x={xValue} y={yValue}/></div></div>
       ) : null}
-      {questions[currentQuestionIndex] && (
-      <div>effect x={questions[currentQuestionIndex].effect.x} y={questions[currentQuestionIndex].effect.y}</div>
-    )}
     </div>
   )
 }
