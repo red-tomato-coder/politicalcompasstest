@@ -90,10 +90,6 @@ function Questions(props) {
       {questions[currentQuestionIndex] && (
       <div>effect x={questions[currentQuestionIndex].effect.x} y={questions[currentQuestionIndex].effect.y}</div>
     )}
-      <div>current question {currentQuestionIndex}</div>
-      <div>x={xValue} y={yValue}</div>
-      <PoliticalCompass x={xValue} y={yValue}/>
-      <Ideologies x={xValue} y={yValue}/>
     </div>
   )
 }
