@@ -4,25 +4,25 @@ function Ideologies(props) {
     if(props.x>-11 && props.x<11 && props.y > -11 && props.y<11){
         return <div data-testid="DisplayIdeology">Centrism</div>
     }
-    if( props.x>-11 && props.x<11 && props.y<-11 && props.y>-22){
+    if( props.x>-11 && props.x<11 && props.y<-11 && props.y>-33){
         return <div data-testid="DisplayIdeology">Swiss democracy</div>
     }
-    if(props.x>11 && props.x<22 &&  props.y > -11 && props.y<11){
+    if(props.x>11 && props.x<33 &&  props.y > -11 && props.y<11){
         return <div data-testid="DisplayIdeology">Traditionalism</div>
     }
-    if( props.x>11 && props.x<22 &&  props.y<-11 && props.y>-22){
+    if( props.x>11 && props.x<33 &&  props.y<-11 && props.y>-33){
         return <div data-testid="DisplayIdeology">Classical Republic</div>
     }
-    if( props.x>11 && props.x<22 && props.y>11 && props.y<33){
+    if( props.x>11 && props.x<33 && props.y>11 && props.y<33){
         return <div data-testid="DisplayIdeology">Paternalism</div>
     }
-    if( props.x>-22 && props.x<-11 &&  props.y<-11 && props.y>-22){
+    if( props.x>-33 && props.x<-11 &&  props.y<-11 && props.y>-33){
         return <div data-testid="DisplayIdeology">Athenian Democracy</div>
     }
-    if( props.x>-22 && props.x<-11 && props.y > -11 && props.y<11  ){
+    if( props.x>-33 && props.x<-11 && props.y > -11 && props.y<11  ){
         return <div data-testid="DisplayIdeology">Labourism</div>
     }
-    if( props.x>-22 && props.x<-11 && props.y>11 && props.y<33){
+    if( props.x>-33 && props.x<-11 && props.y>11 && props.y<33){
         return <div data-testid="DisplayIdeology">Ataturkism</div>
     }
     if(props.x>-11 && props.x<11 &&  props.y>11 && props.y<33){
@@ -57,32 +57,32 @@ function Ideologies(props) {
         return <div data-testid="DisplayIdeology">Confederatism</div>
     }
      //ЦЕНТРИЗМ-ЛІВО
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
+    if(props.x>=-100 && props.x<-77 && props.y>33 && props.y<11){
         return <div data-testid="DisplayIdeology">Baathism</div>
     }
     if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
         return <div data-testid="DisplayIdeology">MMM</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
+    if(props.x>-55 && props.x<-33 && props.y>33 && props.y<11){
         return <div data-testid="DisplayIdeology">Left wing nationalism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
-        return <div data-testid="DisplayIdeology">Maosism</div>
+    if(props.x<-77 && props.x>=-100 && props.y>-11 && props.y<11){
+        return <div data-testid="DisplayIdeology">Left communism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
-        return <div data-testid="DisplayIdeology">Social Democracprops.y</div>
+    if(props.x<-33 && props.x>-55 && props.y>-11 && props.y<11){
+        return <div data-testid="DisplayIdeology">Social Democracy</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
-        return <div data-testid="DisplayIdeology">Christian Democracprops.y</div>
+    if(props.x<-55 && props.x>-77 && props.y>-11 && props.y<11){
+        return <div data-testid="DisplayIdeology">Christian Democracy</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
+    if(props.x>=-100 && props.x<-77 && props.y<-33 && props.y>-55){
         return <div data-testid="DisplayIdeology">Posadism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
+    if(props.x<-33 && props.x>-55 && props.y<-33 && props.y>-55){
         return <div data-testid="DisplayIdeology">Syndicalism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
-        return <div data-testid="DisplayIdeology">Christiam Sprops.yndicalism</div>
+    if(props.x<-33 && props.x>-55 && props.y<-33 && props.y>-55){
+        return <div data-testid="DisplayIdeology">Christiam Syndicalism</div>
     }
     //ЛІВАЦЬКІ ЛІБЕРАЛИ
     if(props.x>-100 && props.x<-77 && props.y>-33 && props.y<-11){
@@ -91,66 +91,69 @@ function Ideologies(props) {
     if(props.x>-77 && props.x<-44 && props.y>-33 && props.y<-11){
         return <div data-testid="DisplayIdeology">Social Democracy</div>
     }
-    if(props.x>-44 && props.x<-22 && props.y>-5 && props.y<10){
+    if(props.x>-55 && props.x<-33 && props.y>-5 && props.y<10){
         return <div data-testid="DisplayIdeology">Welfarism</div>
     }
     if(props.x>-100 && props.x<-77 && props.y>-77 && props.y<-55){
         return <div data-testid="DisplayIdeology">First Internationale Ideas</div>
     }
-    if(props.x>-5 && props.x<5 &&  props.y>-77 && props.y<-55){
+    if(props.x>-77 && props.x<-55 &&  props.y>-77 && props.y<-55){
         return <div data-testid="DisplayIdeology">Post modernism</div>
     }
-        if(props.x>-5 && props.x<5 && props.y>-77 && props.y<-55){
-    return <div data-testid="DisplayIdeology">Agrarianism</div>
-        }
+    if(props.x>-55 && props.x<-33 && props.y>-77 && props.y<-55){
+        return <div data-testid="DisplayIdeology">Agrarianism</div>
+    }
     if(props.x>-100 && props.x<-77 && props.y<=-77 && props.y>=-100){
         return <div data-testid="DisplayIdeology">Anarcho-Communism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y<-77 && props.y>=-100){
+    if(props.x>-77 && props.x<-55 && props.y<-77 && props.y>=-100){
         return <div data-testid="DisplayIdeology">Anarcho syndicalism</div>
         }
-    if(props.x>-5 && props.x<5 && props.y<-77 && props.y>=-100){
+    if(props.x>-55 && props.x<-33 && props.y<-77 && props.y>=-100){
         return <div data-testid="DisplayIdeology">Amish</div>
         }
     //Ліберали центр
-    if(props.x>-22 && props.x<-11 && props.y>-33 && props.y<-11){
+    if(props.x>-33 && props.x<-11 && props.y>-33 && props.y<-11){
         return <div data-testid="DisplayIdeology">Nordic Liberalism</div>
     }
     if(props.x>-11 && props.x<11 && props.y>-33 && props.y<-11){
         return <div data-testid="DisplayIdeology">Anarcho Totalitarianism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-5 && props.y<10){
-        return <div data-testid="DisplayIdeology">Anarcho Technocracprops.y</div>
+    if(props.x>-5 && props.x<5 && props.y>-33 && props.y<-11){
+        return <div data-testid="DisplayIdeology">Anarcho Theocracy</div>
     }
-    if(props.x>-22 && props.x<-11 && props.y>-77 && props.y<-55){
+    if(props.x>-33 && props.x<-11 && props.y>-77 && props.y<-55){
         return <div data-testid="DisplayIdeology">Anarcho Frontierism</div>
     }
     if(props.x>-11 && props.x<11 && props.y>-77 && props.y<-55){
         return <div data-testid="DisplayIdeology">Social Libertarianlism</div>
     }
-    if(props.x>11 && props.x<22 && props.y>-77 && props.y<-55){
+    if(props.x>11 && props.x<33 && props.y>-77 && props.y<-55){
         return <div data-testid="DisplayIdeology">Amerindianism Council</div>
     }
-    if(props.x>11 && props.x<22 && props.y<-77 && props.y>=-100){
+    if(props.x>11 && props.x<33 && props.y<-77 && props.y>=-100){
         return <div data-testid="DisplayIdeology">Accelerationism</div>
     }
     if(props.x>-11 && props.x<11 && props.y<-77 && props.y>=-100){
         return <div data-testid="DisplayIdeology">Anarchism</div>
     }
-    if(props.x>11 && props.x<22 && props.y<-77 && props.y>=-100){
+    if(props.x>11 && props.x<33 && props.y<-77 && props.y>=-100){
         return <div data-testid="DisplayIdeology">Individualist anarchism</div>
     }
     if(props.x>-5 && props.x<5 && props.y>-33 && props.y<-11){
         return <div data-testid="DisplayIdeology">Anarcho Fascism</div>
     }
     //Анкап
-    if(props.x>-5 && props.x<5 && props.y>-33 && props.y<-11){
+    if(props.x>33 && props.x<55 && props.y>-55 && props.y<-33){
+        return <div data-testid="DisplayIdeology">IRS hater</div>
+    }
+    if(props.x>55 && props.x<77 && props.y>-55 && props.y<-33){
         return <div data-testid="DisplayIdeology">Liberal Corporatism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-33 && props.y<-11){
+    if(props.x>77 && props.x<=100 && props.y>-55 && props.y<-33){
         return <div data-testid="DisplayIdeology">Hoppeanism</div>
     }
-    if(props.x>-5 && props.x<5 && props.y>-77 && props.y<-55){
+    if(props.x>33 && props.x<55 && props.y>-77 && props.y<-55){
         return <div data-testid="DisplayIdeology">Neoliberal</div>
     }
     if(props.x>55 && props.x<77 && props.y>-77 && props.y<-55){
@@ -225,13 +228,13 @@ function Ideologies(props) {
         return <div data-testid="DisplayIdeology">Aristocracy</div>
     }
     //ЦЕНТРИЗМ АВТОРИТАР
-    if(props.x>-22 && props.x<-11 && props.y>77 && props.y<=100){
+    if(props.x>-33 && props.x<-11 && props.y>77 && props.y<=100){
         return <div data-testid="DisplayIdeology">Eco-fascism</div>
     }
-    if(props.x>-22 && props.x<-11 && props.y>33 && props.y<55){
+    if(props.x>-33 && props.x<-11 && props.y>33 && props.y<55){
         return <div data-testid="DisplayIdeology">Futurist</div>
     }
-    if(props.x>-22 && props.x<-11 && props.y>33 && props.y<55){
+    if(props.x>-33 && props.x<-11 && props.y>33 && props.y<55){
         return <div data-testid="DisplayIdeology">Kleptocracy</div>
     }
     if(props.x>-11 && props.x<11 && props.y>77 && props.y<=100){
@@ -243,13 +246,13 @@ function Ideologies(props) {
     if(props.x>-11 && props.x<11 && props.y>33 && props.y<55){
         return <div data-testid="DisplayIdeology">Third Way</div>
     }
-    if(props.x>11 && props.x<22 && props.y>77 && props.y<=100){
+    if(props.x>11 && props.x<33 && props.y>77 && props.y<=100){
         return <div data-testid="DisplayIdeology">Fascism</div>
     }
-    if(props.x>11 && props.x<22 && props.y>33 && props.y<55){
+    if(props.x>11 && props.x<33 && props.y>33 && props.y<55){
         return <div data-testid="DisplayIdeology">Moralism</div>
     }
-    if(props.x>11 && props.x<22 && props.y>33 && props.y<55){
+    if(props.x>11 && props.x<33 && props.y>33 && props.y<55){
         return <div data-testid="DisplayIdeology">Senatorialism</div>
     }
         
