@@ -16,10 +16,10 @@ function PoliticalCompass(props) {
 
   <line x1="0" y1="-100" x2="0" y2="100" stroke="black" />
 
-  <text x="100" y="5" text-anchor="end">Право</text>
-  <text x="-100" y="5" text-anchor="start">Ліво</text>
-  <text x="5" y="-105" text-anchor="middle">Лібералізм</text>
-  <text x="5" y="105" text-anchor="middle">Авторитаризм</text>
+  <text x="100" y="10" text-anchor="end">Право</text>
+  <text x="-100" y="10" text-anchor="start">Ліво</text>
+  <text x="5" y="-95" text-anchor="middle">Лібералізм</text>
+  <text x="5" y="95" text-anchor="middle">Авторитаризм</text>
   <circle cx={props.x} cy={props.y*-1} r="5" fill="black" />
 </svg>
 
