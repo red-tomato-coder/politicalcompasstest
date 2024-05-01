@@ -3,7 +3,7 @@ import React from 'react';
 
 function PoliticalCompass(props) {
   return (
-  <div><svg width="420" height="420" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+  <div><svg width="200" height="200" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
   <rect x="0" y="-100" width="100" height="100" fill="#358ad4" />
 
   <rect x="-100" y="-100" width="100" height="100" fill="#ff6c63" />
@@ -18,7 +18,7 @@ function PoliticalCompass(props) {
 
   <text x="100" y="10" text-anchor="end">Право</text>
   <text x="-100" y="10" text-anchor="start">Ліво</text>
-  <text x="5" y="-95" text-anchor="middle">Лібералізм</text>
+  <text x="5" y="-85" text-anchor="middle">Лібералізм</text>
   <text x="5" y="95" text-anchor="middle">Авторитаризм</text>
   <circle cx={props.x} cy={props.y*-1} r="5" fill="black" />
 </svg>
