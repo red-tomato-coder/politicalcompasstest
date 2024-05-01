@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./index.css"
 import PoliticalCompass from "./PoliticalCompass"
 import Ideologies from './Ideologies';
+import Tretya from "./11.png"
 
 function Questions(props) {
   const { i, onSliderChange } = props;
@@ -67,12 +68,13 @@ function Questions(props) {
     {questions[i] && questions[i].question && (
     <div>{questions[i].question}</div>)}
       {i >= questions.length-1 ? null : (<div id='Form'>
-        <div>Питання {i} з {questions.length-1}</div>
+        <div>Питання {i+1} з {questions.length-1}</div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="vol">Наскільки я погоджуюсь з цією думкою (від різко негативного до різко позитивного):</label>
           <div><input
           type="range"
           id="vol"
+          step="any"
           name="vol"
           min="-2"
           max="2"
@@ -83,6 +85,7 @@ function Questions(props) {
           <button onClick={handleSkip}>Пропустити</button>
         </form>
       </div>)}
+      {i==11 ? (<div><img src={Tretya} alt="" /></div>) : null}
       {i == questions.length - 1 ? (
         <div><div>Твій результат <Ideologies x={xValue} y={yValue}/></div>
         <div><PoliticalCompass x={xValue} y={yValue}/></div></div>
