@@ -17,9 +17,9 @@ function PoliticalCompass(props) {
 
   <rect x="0" y="0" width="100" height="100" fill="#fff196" />
 
-  <line x1="-100" y1="0" x2="100" y2="0" stroke="black" />
+  <line x1="-100" y1="0" x2="100" y2="0" stroke="black" marker-end="url(#arrow)"/>
 
-  <line x1="0" y1="-100" x2="0" y2="100" stroke="black" />
+  <line x1="0" y1="-100" x2="0" y2="100" stroke="black" marker-end="url(#arrow)"/>
 
   <text x="100" y="10" text-anchor="end">Право</text>
   <text x="-100" y="10" text-anchor="start">Ліво</text>
