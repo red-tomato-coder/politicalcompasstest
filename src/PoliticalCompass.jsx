@@ -4,6 +4,11 @@ import React from 'react';
 function PoliticalCompass(props) {
   return (
   <div><svg width="200" height="200" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0, 0, L0, 6, L9, 3 z" fill="black"/>
+    </marker>
+  </defs>
   <rect x="0" y="-100" width="100" height="100" fill="#358ad4" />
 
   <rect x="-100" y="-100" width="100" height="100" fill="#ff6c63" />
