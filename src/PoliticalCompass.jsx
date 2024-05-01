@@ -3,7 +3,7 @@ import React from 'react';
 
 function PoliticalCompass(props) {
   return (
-  <div><svg width="200" height="200" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+  <div><svg width="420" height="420" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
   {/* Blue quadrant (top right) */}
   <rect x="0" y="-100" width="100" height="100" fill="#358ad4" />
   {/* Red quadrant (top left) */}
