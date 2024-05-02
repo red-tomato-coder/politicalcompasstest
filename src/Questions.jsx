@@ -7,8 +7,8 @@ import Tretya from "./11.png"
 function Questions(props) {
   const { i, onSliderChange } = props;
   const [sliderValue, setSliderValue] = useState(0);
-  const [changesXMade, setChangesXMade] = useState([]);
-  const [changesYMade, setChangesYMade] = useState([]);
+  const [changesXMade, setChangesXMade] = useState([NaN, NaN]);
+  const [changesYMade, setChangesYMade] = useState([NaN, NaN]);
   const [xValue, setXValue] = useState(0);
   const [yValue, setYValue] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(i); // Step 1
@@ -81,7 +81,7 @@ function Questions(props) {
     setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
   };
   const BackQuestion = () => {
-    if(currentQuestionIndex >= 0){
+    if(currentQuestionIndex >= 0 && changesXMade[currentQuestionIndex-1] != NaN && changesYMade[currentQuestionIndex-1] != NaN){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
     setChangesXMade((changesXMade.pop()))
     console.log("хоба тута X")
