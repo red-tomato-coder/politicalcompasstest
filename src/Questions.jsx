@@ -59,13 +59,13 @@ function Questions(props) {
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
-        setChangesXMade(changesXMade => [...changesXMade, questions[currentQuestionIndex].effect.x * sliderValue]);
+        setChangesXMade(changesXMade => [...changesXMade, xValue]);
       }
     }
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
-        setChangesYMade(changesYMade => [...changesYMade, questions[currentQuestionIndex].effect.y * sliderValue]);
+        setChangesYMade(changesYMade => [...changesYMade, yValue]);
       }
     }
     console.log(changesXMade);
