@@ -54,42 +54,36 @@ function Questions(props) {
     {questions: "", effect: {x: 0, y: 0}}
   ];
 
-  const [allAnswers, setAllAnswers] = useState(Array(questions.length).fill(null)); // Initialize all answers with null
-
   const handleSubmit = (e) => {
-  e.preventDefault();
-  const newXValue = questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined && sliderValue !== 0
-  ? xValue + questions[currentQuestionIndex].effect.x * sliderValue
-  : xValue;
-  const newYValue = questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined && sliderValue !== 0
-  ? yValue + questions[currentQuestionIndex].effect.y * sliderValue
-  : yValue;
-  // Update answers and states
-const updatedAnswers = allAnswers.slice();
-updatedAnswers[currentQuestionIndex] = { sliderValue, xEffect: questions[currentQuestionIndex].effect.x * sliderValue, yEffect: questions[currentQuestionIndex].effect.y * sliderValue };
-setAllAnswers(updatedAnswers);
-setXValue(newXValue);
-setYValue(newYValue);
-setSliderValue(0);
-setCurrentQuestionIndex(currentQuestionIndex + 1);
-};
-const handleSkip = () => {
-  const updatedAnswers = allAnswers.slice();
-updatedAnswers[currentQuestionIndex] = { skipped: true }; // Mark as skipped
-setAllAnswers(updatedAnswers);
-setCurrentQuestionIndex(currentQuestionIndex + 1);
-};
-const BackQuestion = () => {
-  if (i > 0) {
-  setCurrentQuestionIndex(i - 1);
-const prevAnswer = allAnswers[i - 1];
-if (prevAnswer) {
-  setXValue(xValue - (prevAnswer.xEffect || 0));
-setYValue(yValue - (prevAnswer.yEffect || 0));
-setSliderValue(prevAnswer.sliderValue || 0); // Restore the slider value if it wasn't skipped
-}
-}
-};
+    e.preventDefault();
+    if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
+      if (sliderValue !== 0) { // Check if the slider value is not 0
+        setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
+        setChangesXMade(changesXMade => [...changesXMade, questions[currentQuestionIndex].effect.x * sliderValue]);
+      }
+    }
+    if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
+      if (sliderValue !== 0) { // Check if the slider value is not 0
+        setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
+        setChangesYMade(changesYMade => [...changesYMade, questions[currentQuestionIndex].effect.y * sliderValue]);
+      }
+    }
+    setSliderValue(0);
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    onSliderChange(sliderValue, xValue, yValue);
+  };
+  
+  const handleSkip = () => {
+    setXValue((xValue - questions[currentQuestionIndex].effect.x* sliderValue))
+    setYValue((yValue - questions[currentQuestionIndex].effect.y* sliderValue))
+    setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
+  };
+  const BackQuestion = () => {
+    if(currentQuestionIndex > 0){
+    setXValue((xValue - changesXMade[currentQuestionIndex-1]));
+    setYValue((yValue - changesYMade[currentQuestionIndex-1]));
+    setCurrentQuestionIndex(currentQuestionIndex-2);}
+  }
   
   return (
     <div>
