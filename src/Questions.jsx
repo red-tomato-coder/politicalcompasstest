@@ -82,9 +82,14 @@ function Questions(props) {
     if(currentQuestionIndex > 0){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
     setChangesXMade((changesXMade.pop()))
+    console.log(changesXMade);
+    console.log("хоба тута X")
     setYValue((yValue - changesYMade[currentQuestionIndex-1]));
     setChangesYMade((changesYMade.pop()))
+    console.log(changesYMade);
+    console.log("хоба тута Y")
     setCurrentQuestionIndex(currentQuestionIndex-2);}
+    console.log("хоба тута індекс")
   }
   
   return (
@@ -107,7 +112,7 @@ function Questions(props) {
           /></div>
           <button type="submit">Відповісти</button>
           <button onClick={handleSkip}>Пропустити</button>
-          <button onClick={BackQuestion}>Повернутися</button>
+          {i>1 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
         </form>
         <div>{xValue} {yValue}</div>
       </div>)}
