@@ -81,7 +81,9 @@ function Questions(props) {
   const BackQuestion = () => {
     if(currentQuestionIndex > 0){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
+    setChangesXMade((changesXMade.pop()))
     setYValue((yValue - changesYMade[currentQuestionIndex-1]));
+    setChangesYMade((changesYMade.pop()))
     setCurrentQuestionIndex(currentQuestionIndex-2);}
   }
   
