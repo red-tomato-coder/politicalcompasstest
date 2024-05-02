@@ -81,7 +81,7 @@ function Questions(props) {
     setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
   };
   const BackQuestion = () => {
-    if(currentQuestionIndex > 0){
+    if(currentQuestionIndex >= 0){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
     setChangesXMade((changesXMade.pop()))
     console.log("хоба тута X")
