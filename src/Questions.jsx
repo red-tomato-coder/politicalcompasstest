@@ -7,6 +7,8 @@ import Tretya from "./11.png"
 function Questions(props) {
   const { i, onSliderChange } = props;
   const [sliderValue, setSliderValue] = useState(0);
+  const [changesXMade, setChangesXMade] = useState([]);
+  const [changesYMade, setChangesYMade] = useState([]);
   const [xValue, setXValue] = useState(0);
   const [yValue, setYValue] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(i); // Step 1
@@ -37,6 +39,18 @@ function Questions(props) {
     { question: "Титули монархів та аристократів мають бути знищеними", effect: { x: 3, y:0 }},
     { question: "Це цілком справедливо, аби держава надавала перевагу більшості, ніж меншості", effect: { x:0, y: 3 }},
     { question: "Гомосексуальні пари мають мати такі ж права, як і гетеросексуальні пари, включаючи право на всиновлення", effect: { x:0, y: -3}},
+    { question: "Держава повинна регулювати ціни на основні продукти харчування для запобігання спекуляціям", effect: { x: -3, y: 0 } },
+    { question: "Вища освіта має бути безкоштовною для всіх громадян", effect: { x: -3, y: 0 } },
+    { question: "Держава має карати компанії, що забруднюють довкілля", effect: { x: -3, y: 0 } },
+    { question: "Міжнародні корпорації повинні платити податки там, де вони заробляють свій прибуток", effect: { x: -3, y: 0 } },
+    { question: "Держава повинна підтримувати традиційні сімейні цінності", effect: { x: 0, y: 3 } },
+    { question: "Технологічні компанії повинні бути відповідальні за контент, що користувачі розміщують на їхніх платформах", effect: { x: 0, y: 3 } },
+    { question: "Держава має забезпечувати безоплатне житло для бідних", effect: { x: -3, y: 0 } },
+    { question: "Держава має захищати культурну спадщину нації", effect: { x: 0, y: 3 } },
+    { question: "Експорт природних ресурсів має бути сильно обмежений або контрольований державою", effect: { x: -3, y: 0 } },
+    { question: "Спортивні команди мають отримувати фінансування від держави", effect: { x: 0, y: 3 } },
+    { question: "Держава має обмежувати імміграцію для збереження культурної ідентичності", effect: { x: 0, y: 3 } },
+    { question: "Закони про екологічну відповідальність мають бути суворішими, навіть якщо це впливає на бізнес", effect: { x: -3, y: 0 } },
     {questions: "", effect: {x: 0, y: 0}}
   ];
 
@@ -45,11 +59,13 @@ function Questions(props) {
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
+        setChangesXMade(changesXMade => [...changesXMade, questions[currentQuestionIndex].effect.x * sliderValue]);
       }
     }
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
+        setChangesYMade(changesYMade => [...changesYMade, questions[currentQuestionIndex].effect.y * sliderValue]);
       }
     }
     setSliderValue(0);
@@ -62,6 +78,11 @@ function Questions(props) {
     setYValue((yValue - questions[currentQuestionIndex].effect.y* sliderValue))
     setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
   };
+  const BackQuestion = () => {
+    setXValue((xValue - changesXMade[i-1]));
+    setYValue((yValue - changesYMade[i-1]));
+    setCurrentQuestionIndex(currentQuestionIndex-2);
+  }
   
   return (
     <div>
@@ -83,7 +104,9 @@ function Questions(props) {
           /></div>
           <button type="submit">Відповісти</button>
           <button onClick={handleSkip}>Пропустити</button>
+          <button onClick={BackQuestion}>Повернутися</button>
         </form>
+        <div>{xValue} {yValue}</div>
       </div>)}
       {i==11 ? (<div><img src={Tretya} alt="" /></div>) : null}
       {i == questions.length - 1 ? (
