@@ -68,6 +68,8 @@ function Questions(props) {
         setChangesYMade(changesYMade => [...changesYMade, questions[currentQuestionIndex].effect.y * sliderValue]);
       }
     }
+    console.log(changesXMade);
+    console.log(changesYMade);
     setSliderValue(0);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
     onSliderChange(sliderValue, xValue, yValue);
@@ -82,11 +84,9 @@ function Questions(props) {
     if(currentQuestionIndex > 0){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
     setChangesXMade((changesXMade.pop()))
-    console.log(changesXMade);
     console.log("хоба тута X")
     setYValue((yValue - changesYMade[currentQuestionIndex-1]));
     setChangesYMade((changesYMade.pop()))
-    console.log(changesYMade);
     console.log("хоба тута Y")
     setCurrentQuestionIndex(currentQuestionIndex-2);}
     console.log("хоба тута індекс")
