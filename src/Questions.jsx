@@ -59,13 +59,13 @@ function Questions(props) {
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
-        setChangesXMade(changesXMade.push(xValue));
+        setChangesXMade(changesXMade.concat(xValue));
       }
     }
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
-        setChangesYMade(changesYMade.push(yValue));
+        setChangesYMade(changesYMade.concat(yValue));
       }
     }
     console.log(changesXMade);
@@ -112,7 +112,7 @@ function Questions(props) {
           /></div>
           <button type="submit">Відповісти</button>
           <button onClick={handleSkip}>Пропустити</button>
-          {i>1 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
+          {i>0 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
         </form>
         <div>{xValue} {yValue}</div>
       </div>)}
