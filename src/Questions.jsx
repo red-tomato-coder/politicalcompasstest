@@ -86,27 +86,28 @@ function Questions(props) {
   };
   
   const BackQuestion = () => {
-    console.log("///BACK///")
+    // Only allow going back if it's not the first question
     if (currentQuestionIndex > 0) {
-      console.log("///BACK WORKED///")
-      const lastXChange = changesXMade[changesXMade.length - 1];
-      const lastYChange = changesYMade[changesYMade.length - 1];
-      
-      // Update the values of X and Y by reverting the last change
-      const newXValue = xValue - lastXChange;
-      const newYValue = yValue - lastYChange;
-      
-      // Update the state with the new values and decrement the question index
+      console.log("ТУДААА")
+      const newXValue = xValue - (changesXMade[changesXMade.length - 1] || 0);
+      const newYValue = yValue - (changesYMade[changesYMade.length - 1] || 0);
+
+      // Update xValue and yValue in state
       setXValue(newXValue);
       setYValue(newYValue);
-      setChangesXMade(changesXMade.slice(0, -1));
-      setChangesYMade(changesYMade.slice(0, -1));
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-      {/*if(currentQuestionIndex===1){setCurrentQuestionIndex(currentQuestionIndex - 1);}
-    else{setCurrentQuestionIndex(currentQuestionIndex - 2);}*/} // Decrement the question index
-      console.log(currentQuestionIndex);
-    }
+
+      // Remove the last changes from changesXMade and changesYMade
+      setChangesXMade(prevChanges => prevChanges.slice(0, -1));
+      setChangesYMade(prevChanges => prevChanges.slice(0, -1));
+
+      // Set the new current question index
+      if(currentQuestionIndex===1){setCurrentQuestionIndex(currentQuestionIndex - 1)};
+      if(currentQuestionIndex===2){console.log(currentQuestionIndex+"?"); setCurrentQuestionIndex(currentQuestionIndex - 1.99 - 0.01)};//Я їбу як так получилося
+      if(currentQuestionIndex>2){setCurrentQuestionIndex(currentQuestionIndex - 2)};
+      
+  }
 };
+
 
   
   return (
@@ -131,7 +132,6 @@ function Questions(props) {
           <button onClick={handleSkip}>Пропустити</button>
           {currentQuestionIndex>0 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
         </form>
-        <div>{xValue} {yValue}</div>
       </div>)}
       {currentQuestionIndex==11 ? (<div><img src={Tretya} alt="" /></div>) : null}
       {currentQuestionIndex == questions.length - 1 ? (
