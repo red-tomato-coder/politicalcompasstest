@@ -57,40 +57,57 @@ function Questions(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
-      if (sliderValue !== 0) { // Check if the slider value is not 0
+      if (sliderValue !== 0) {
         setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
         setChangesXMade(changesXMade.concat(questions[currentQuestionIndex].effect.x * sliderValue));
       }
     }
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
-      if (sliderValue !== 0) { // Check if the slider value is not 0
+      if (sliderValue !== 0) {
         setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
         setChangesYMade(changesYMade.concat(questions[currentQuestionIndex].effect.y * sliderValue));
       }
     }
-    console.log(changesXMade);
-    console.log(changesYMade);
+    console.log("Changes in X:", changesXMade);
+    console.log("Changes in Y:", changesYMade);
+    console.log("Current X value:", xValue);
+    console.log("Current Y value:", yValue);
     setSliderValue(0);
+    console.log("///Was question index:", currentQuestionIndex);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    console.log("///Current question index:", currentQuestionIndex);
     onSliderChange(sliderValue, xValue, yValue);
   };
   
   const handleSkip = () => {
-    setXValue((xValue - questions[currentQuestionIndex].effect.x* sliderValue))
-    setYValue((yValue - questions[currentQuestionIndex].effect.y* sliderValue))
-    setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
+    setXValue((xValue - questions[currentQuestionIndex].effect.x * sliderValue))
+    setYValue((yValue - questions[currentQuestionIndex].effect.y * sliderValue))
+    setCurrentQuestionIndex(currentQuestionIndex); 
   };
+  
   const BackQuestion = () => {
-    if(currentQuestionIndex > 0){
-    setXValue((xValue - changesXMade[currentQuestionIndex-1]));
-    setChangesXMade(changesXMade => changesXMade.slice(0, -1))
-    console.log("хоба тута X")
-    setYValue((yValue - changesYMade[currentQuestionIndex-1]));
-    setChangesYMade(changesYMade => changesYMade.slice(0, -1))
-    console.log("хоба тута Y")
-    setCurrentQuestionIndex(currentQuestionIndex-1);}
-    console.log("хоба тута індекс")
-  }
+    console.log("///BACK///")
+    if (currentQuestionIndex > 0) {
+      console.log("///BACK WORKED///")
+      const lastXChange = changesXMade[changesXMade.length - 1];
+      const lastYChange = changesYMade[changesYMade.length - 1];
+      
+      // Update the values of X and Y by reverting the last change
+      const newXValue = xValue - lastXChange;
+      const newYValue = yValue - lastYChange;
+      
+      // Update the state with the new values and decrement the question index
+      setXValue(newXValue);
+      setYValue(newYValue);
+      setChangesXMade(changesXMade.slice(0, -1));
+      setChangesYMade(changesYMade.slice(0, -1));
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+      {/*if(currentQuestionIndex===1){setCurrentQuestionIndex(currentQuestionIndex - 1);}
+    else{setCurrentQuestionIndex(currentQuestionIndex - 2);}*/} // Decrement the question index
+      console.log(currentQuestionIndex);
+    }
+};
+
   
   return (
     <div>
@@ -99,7 +116,7 @@ function Questions(props) {
       {currentQuestionIndex >= questions.length-1 ? null : (<div id='Form'>
         <div>Питання {currentQuestionIndex+1} з {questions.length-1}</div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="vol">Наскільки я погоджуюсь з цією думкою (від різко негативного до різко позитивного):</label>
+          <label htmlFor="vol">Наскільки я погоджуюсь з цією думкою (від різко <font color="red" border-color="black" border-radius="2px"> негативного </font> до різко <font color="green" border-color="#000" border-radius="2px">позитивного</font>):</label>
           <div><input
           type="range"
           id="vol"
