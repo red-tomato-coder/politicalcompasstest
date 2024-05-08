@@ -81,7 +81,7 @@ function Questions(props) {
     setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
   };
   const BackQuestion = () => {
-    if(currentQuestionIndex >= 1){
+    if(currentQuestionIndex > 1){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
     setChangesXMade(changesXMade => changesXMade.slice(0, -1))
     console.log("хоба тута X")
@@ -112,7 +112,7 @@ function Questions(props) {
           /></div>
           <button type="submit">Відповісти</button>
           <button onClick={handleSkip}>Пропустити</button>
-          {i>0 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
+          {i>=1 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
         </form>
         <div>{xValue} {yValue}</div>
       </div>)}
