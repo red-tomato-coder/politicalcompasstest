@@ -59,13 +59,13 @@ function Questions(props) {
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
-        setChangesXMade(changesXMade.concat(xValue));
+        setChangesXMade(changesXMade.concat(questions[currentQuestionIndex].effect.x * sliderValue));
       }
     }
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
       if (sliderValue !== 0) { // Check if the slider value is not 0
         setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
-        setChangesYMade(changesYMade.concat(yValue));
+        setChangesYMade(changesYMade.concat(questions[currentQuestionIndex].effect.y * sliderValue));
       }
     }
     console.log(changesXMade);
@@ -88,16 +88,16 @@ function Questions(props) {
     setYValue((yValue - changesYMade[currentQuestionIndex-1]));
     setChangesYMade(changesYMade => changesYMade.slice(0, -1))
     console.log("хоба тута Y")
-    setCurrentQuestionIndex(currentQuestionIndex-2);}
+    setCurrentQuestionIndex(currentQuestionIndex-1);}
     console.log("хоба тута індекс")
   }
   
   return (
     <div>
-    {questions[i] && questions[i].question && (
-    <div>{questions[i].question}</div>)}
-      {i >= questions.length-1 ? null : (<div id='Form'>
-        <div>Питання {i+1} з {questions.length-1}</div>
+    {questions[currentQuestionIndex] && questions[currentQuestionIndex].question && (
+    <div>{questions[currentQuestionIndex].question}</div>)}
+      {currentQuestionIndex >= questions.length-1 ? null : (<div id='Form'>
+        <div>Питання {currentQuestionIndex+1} з {questions.length-1}</div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="vol">Наскільки я погоджуюсь з цією думкою (від різко негативного до різко позитивного):</label>
           <div><input
@@ -116,8 +116,8 @@ function Questions(props) {
         </form>
         <div>{xValue} {yValue}</div>
       </div>)}
-      {i==11 ? (<div><img src={Tretya} alt="" /></div>) : null}
-      {i == questions.length - 1 ? (
+      {currentQuestionIndex==11 ? (<div><img src={Tretya} alt="" /></div>) : null}
+      {currentQuestionIndex == questions.length - 1 ? (
         <div><div>Твій результат <Ideologies x={xValue} y={yValue}/></div>
         <div><PoliticalCompass x={xValue} y={yValue}/></div></div>
       ) : null}
