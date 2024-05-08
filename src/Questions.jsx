@@ -88,7 +88,7 @@ function Questions(props) {
     setYValue((yValue - changesYMade[currentQuestionIndex-1]));
     setChangesYMade(changesYMade => changesYMade.slice(0, -1))
     console.log("хоба тута Y")
-    setCurrentQuestionIndex(currentQuestionIndex-2);}
+    setCurrentQuestionIndex(currentQuestionIndex-1);}
     console.log("хоба тута індекс")
   }
   
