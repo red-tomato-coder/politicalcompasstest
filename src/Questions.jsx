@@ -112,7 +112,7 @@ function Questions(props) {
           /></div>
           <button type="submit">Відповісти</button>
           <button onClick={handleSkip}>Пропустити</button>
-          {i>0 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
+          {currentQuestionIndex>0 ? (<button onClick={BackQuestion}>Повернутися</button>) : null}
         </form>
         <div>{xValue} {yValue}</div>
       </div>)}
