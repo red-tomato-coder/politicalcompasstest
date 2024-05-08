@@ -81,14 +81,14 @@ function Questions(props) {
     setCurrentQuestionIndex(currentQuestionIndex); // Костиль аби уникнути зарахування при пропуску питання
   };
   const BackQuestion = () => {
-    if(currentQuestionIndex >= 0){
+    if(currentQuestionIndex >= 1){
     setXValue((xValue - changesXMade[currentQuestionIndex-1]));
     setChangesXMade(changesXMade => changesXMade.slice(0, -1))
     console.log("хоба тута X")
     setYValue((yValue - changesYMade[currentQuestionIndex-1]));
     setChangesYMade(changesYMade => changesYMade.slice(0, -1))
     console.log("хоба тута Y")
-    setCurrentQuestionIndex(currentQuestionIndex-1);}
+    setCurrentQuestionIndex(currentQuestionIndex-2);}
     console.log("хоба тута індекс")
   }
   
