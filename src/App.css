@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+.GitHub {
+  position: fixed;
+  bottom: 0;
+  left: 45%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

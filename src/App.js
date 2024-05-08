@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Questions i={count} onSliderChange={handleSliderChange} />
+      <div className='GitHub'><a href='https://github.com/red-tomato-coder/politicalcompasstest'>Посилання на код</a></div>
     </div>
   );
 }
