@@ -58,14 +58,16 @@ function Questions(props) {
     e.preventDefault();
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.x !== undefined) {
       if (sliderValue !== 0) {
+        if(xValue + questions[currentQuestionIndex].effect.x * sliderValue <= 100 || xValue + questions[currentQuestionIndex].effect.x * sliderValue >= -100){
         setXValue(xValue + questions[currentQuestionIndex].effect.x * sliderValue);
-        setChangesXMade(changesXMade.concat(questions[currentQuestionIndex].effect.x * sliderValue));
+        setChangesXMade(changesXMade.concat(questions[currentQuestionIndex].effect.x * sliderValue));}
       }
     }
     if (questions[currentQuestionIndex] && questions[currentQuestionIndex].effect.y !== undefined) {
       if (sliderValue !== 0) {
+        if(yValue + questions[currentQuestionIndex].effect.y * sliderValue <= 100 || yValue + questions[currentQuestionIndex].effect.y * sliderValue >= -100){
         setYValue(yValue + questions[currentQuestionIndex].effect.y * sliderValue);
-        setChangesYMade(changesYMade.concat(questions[currentQuestionIndex].effect.y * sliderValue));
+        setChangesYMade(changesYMade.concat(questions[currentQuestionIndex].effect.y * sliderValue));}
       }
     }
     console.log("Changes in X:", changesXMade);
@@ -138,6 +140,7 @@ function Questions(props) {
         <div><div>Твій результат <Ideologies x={xValue} y={yValue}/></div>
         <div><PoliticalCompass x={xValue} y={yValue}/></div></div>
       ) : null}
+      div
     </div>
   )
 }
