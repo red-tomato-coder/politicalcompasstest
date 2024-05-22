@@ -137,10 +137,11 @@ function Questions(props) {
       </div>)}
       {currentQuestionIndex==11 ? (<div><img src={Tretya} alt="" /></div>) : null}
       {currentQuestionIndex == questions.length - 1 ? (
-        <div><div>Твій результат <Ideologies x={xValue} y={yValue}/></div>
-        <div><PoliticalCompass x={xValue} y={yValue}/></div></div>
+        <div>
+          <div>Твій результат <Ideologies x={xValue} y={yValue}/></div>
+          <div><PoliticalCompass x={xValue} y={yValue}/></div>
+        </div>
       ) : null}
-      div
     </div>
   )
 }
